@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mission 2027: Objective Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="quiz-container" id="auth-screen">
+    <div class="brand-title">Mission 2027 <br><span style="font-size: 18px; color: #00d2ff;">Objective Master</span></div>
+
+    <h2 style="text-align: center; margin-bottom: 20px;">Student Login</h2>
+    
+    <div class="options-container" id="login-form">
+        <input type="text" id="user-name" placeholder="Apna Naam Likhein" class="input-field">
+        <input type="tel" id="user-mobile" placeholder="Mobile Number" class="input-field" maxlength="10">
+        <input type="password" id="user-pass" placeholder="Password Banayein" class="input-field">
+        
+        <button id="login-btn" class="option-btn" style="text-align: center; background: #3a7bd5; font-weight: bold; margin-top: 10px;">Login / Register</button>
+    </div>
+    <p id="auth-error" style="color: #ff4757; text-align: center; margin-top: 15px; font-size: 14px; display: none;"></p>
+</div>
+
+<div class="quiz-container hide" id="dashboard-screen">
+    <div class="brand-title">Student Profile</div>
+    <div class="profile-header" style="text-align: center; margin-bottom: 25px;">
+        <h2 id="profile-name" style="color: #00d2ff;">Welcome, Student</h2>
+        <p style="color: #ccc; margin-top: 5px;">Total Score: <span id="profile-score" style="color: #2ed573; font-weight: bold;">0</span></p>
+    </div>
+
+    <h3 style="margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Select Level</h3>
+    
+    <div class="options-container" id="level-container">
+        <button class="option-btn level-btn" onclick="startLevel(1)">Level 1 (10th Board)</button>
+        <button class="option-btn level-btn disabled" style="opacity: 0.5;">Level 2 (Locked)</button>
+    </div>
+    
+    <button id="logout-btn" style="margin-top: 25px; width: 100%; padding: 12px; background: transparent; border: 1px solid #ff4757; color: #ff4757; border-radius: 10px; cursor: pointer;">Logout</button>
+</div>
+
+<div class="quiz-container hide" id="quiz-screen">
+    <div class="brand-title">Mission 2027 <br><span style="font-size: 14px; color: #00d2ff;">Objective Master</span></div>
+    
+    <div id="quiz-body">
+        <div class="quiz-header" id="quiz-header">
+            <span class="question-count">Q: <span id="q-count">1</span>/<span id="total-q">5</span></span>
+            <div class="timer">Time: <span id="time">10</span>s</div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-text">Loading question...</div>
+        <div class="options-container" id="options-container">
+            </div>
+
+        <button id="next-btn" class="hide-btn">Next Question</button>
+    </div>
+
+    <div id="result-screen" class="hide result-box">
+        <h2>Test Completed!</h2>
+        <div class="score-circle">
+            <span id="final-score">0/50</span>
+        </div>
+        <p id="result-message">Calculating...</p>
+        <button id="restart-btn" onclick="goToDashboard()">Back to Dashboard</button>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
